@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "274390435598",
+    "project_id": "myfirebaseauthenticationsample",
+    "storage_bucket": "myfirebaseauthenticationsample.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274390435598:android:807f903033674d0685795f",
+        "android_client_info": {
+          "package_name": "com.imkou.myfirebaseauthenticationsample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "274390435598-mjc60b7qhlulvu4okcqq2usnk2m9177m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA00Vhj-KDLzTCdcsA3e3Jm1eJQ1Ml_RdM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "274390435598-mjc60b7qhlulvu4okcqq2usnk2m9177m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
