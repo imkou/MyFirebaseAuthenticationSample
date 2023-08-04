@@ -7,8 +7,18 @@ import com.google.firebase.auth.FirebaseAuth
  */
 class MyFirebaseAuthenticationUtil private constructor() {
 
+    private var listener: AuthenticationListener? = null
+
     companion object {
         val instance: MyFirebaseAuthenticationUtil by lazy { MyFirebaseAuthenticationUtil() }
+    }
+
+    /**
+     * Listenerを登録する
+     * @param listener 認証結果を返却するリスナー
+     */
+    fun setAuthenticationListener(listener: AuthenticationListener) {
+        this.listener = listener
     }
 
     /**
@@ -28,8 +38,13 @@ class MyFirebaseAuthenticationUtil private constructor() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // signUp成功時の処理
+                    listener?.onSignUpSuccess()
                 } else {
                     // signUp失敗時の処理
+                    val exception = task.exception
+                    val message = exception?.message.toString()
+                    // errorメッセージを返却する
+                    listener?.onSignUpFailure(message)
                 }
             }
     }
@@ -44,8 +59,12 @@ class MyFirebaseAuthenticationUtil private constructor() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     // Login成功時の処理
+                    listener?.onLoginSuccess()
                 } else {
                     // Login失敗時の処理
+                    val exception = task.exception
+                    val message = exception?.message.toString()
+                    listener?.onLoginFailure(message)
                 }
             }
     }
